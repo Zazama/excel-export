@@ -9,6 +9,11 @@
  * @license MIT
  * @package silverstripe-excel-export
  */
+
+namespace ExcelExport;
+
+use SilverStripe\ORM\SS_List;
+
 class OldExcelDataFormatter extends ExcelDataFormatter
 {
 

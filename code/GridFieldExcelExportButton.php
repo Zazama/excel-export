@@ -12,6 +12,20 @@
  * @license MIT
  * @package silverstripe-excel-export
  */
+
+namespace ExcelExport;
+
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridField_ActionProvider;
+use SilverStripe\Forms\GridField\GridField_FormAction;
+use SilverStripe\Forms\GridField\GridField_HTMLProvider;
+use SilverStripe\Forms\GridField\GridField_URLHandler;
+use SilverStripe\Forms\GridField\GridFieldFilterHeader;
+use SilverStripe\Forms\GridField\GridFieldSortableHeader;
+use SilverStripe\ORM\ArrayList;
+
 class GridFieldExcelExportButton implements
     GridField_HTMLProvider,
     GridField_ActionProvider,
@@ -88,7 +102,7 @@ class GridFieldExcelExportButton implements
         // Return the fragment
         return array(
             $this->targetFragment =>
-                 $splitButton->Field()
+                $splitButton->Field()
         );
     }
 

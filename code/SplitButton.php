@@ -9,6 +9,14 @@
  * @license MIT
  * @package silverstripe-excel-export
  */
+
+namespace ExcelExport;
+
+use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\View\Requirements;
+
 class SplitButton extends TabSet
 {
 
@@ -56,7 +64,7 @@ class SplitButton extends TabSet
                 // Make sure we only add Form Fields to our tab.
                 $isValidArg =
                     (is_object($button) &&
-                    !($button instanceof FormField));
+                        !($button instanceof FormField));
                 if (!$isValidArg) {
                     user_error(
                         'SplitButton::__construct(): Parameter not a valid FormField instance',

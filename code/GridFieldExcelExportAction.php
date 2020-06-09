@@ -5,6 +5,17 @@
  *
  * Based of {@link GridFieldDeleteAction}.
  */
+
+namespace ExcelExport;
+
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridField_ActionProvider;
+use SilverStripe\Forms\GridField\GridField_ColumnProvider;
+use SilverStripe\Forms\GridField\GridField_FormAction;
+use SilverStripe\ORM\ValidationException;
+
 class GridFieldExcelExportAction implements GridField_ColumnProvider, GridField_ActionProvider {
 
     /**
@@ -97,7 +108,7 @@ class GridFieldExcelExportAction implements GridField_ColumnProvider, GridField_
         if(!$record->canView()) return;
 
         $field = GridField_FormAction::create($gridField, 'ExportSingle'.$record->ID, false,
-                "exportsingle", array('RecordID' => $record->ID))
+            "exportsingle", array('RecordID' => $record->ID))
             ->addExtraClass('gridfield-button-export-single no-ajax')
             ->setAttribute('title', _t('firebrandhq.EXCELEXPORT', "Export"))
             ->setAttribute('data-icon', 'download-csv');

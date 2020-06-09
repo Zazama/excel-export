@@ -12,6 +12,17 @@
  * @license MIT
  * @package silverstripe-excel-export
  */
+
+namespace ExcelExport;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataObjectInterface;
+use SilverStripe\ORM\SS_List;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Security;
+use SilverStripe\View\SSViewer;
+
 class ExcelDataFormatter extends DataFormatter
 {
 
@@ -170,7 +181,7 @@ class ExcelDataFormatter extends DataFormatter
     protected function setupExcel(DataObjectInterface $do)
     {
         // Try to get the current user
-        $member = Member::currentUser();
+        $member = Security::getCurrentUser();
         $creator = $member ? $member->getName() : '';
 
         // Get information about the current Model Class
