@@ -9,6 +9,10 @@
  * @license MIT
  * @package silverstripe-excel-export
  */
+namespace ExcelExport;
+
+use SilverStripe\ORM\SS_List;
+
 class CsvDataFormatter extends ExcelDataFormatter
 {
 
@@ -46,3 +50,4 @@ class CsvDataFormatter extends ExcelDataFormatter
         return $fileData;
     }
 }
+
