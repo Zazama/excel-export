@@ -162,7 +162,7 @@ class ExcelDataFormatter extends DataFormatter
             for ($i = 0; $i < $col; $i++) {
                 $sheet
                     ->getColumnDimension(
-                        PHPExcel_Cell::stringFromColumnIndex($i)
+                        \PHPExcel_Cell::stringFromColumnIndex($i)
                     )
                     ->setAutoSize(true);
             }
@@ -189,7 +189,7 @@ class ExcelDataFormatter extends DataFormatter
         $plural = $do ? $do->i18n_plural_name() : '';
 
         // Create the Spread sheet
-        $excel = new PHPExcel();
+        $excel = new \PHPExcel();
 
         $excel->getProperties()
             ->setCreator($creator)
@@ -221,7 +221,7 @@ class ExcelDataFormatter extends DataFormatter
      * @param  DataObjectInterface  $do
      * @return PHPExcel_Worksheet
      */
-    protected function headerRow(PHPExcel_Worksheet &$sheet, array $fields, DataObjectInterface $do)
+    protected function headerRow(\PHPExcel_Worksheet &$sheet, array $fields, DataObjectInterface $do)
     {
         // Counter
         $row = 1;
@@ -238,7 +238,7 @@ class ExcelDataFormatter extends DataFormatter
 
         // Get the last column
         $col--;
-        $endcol = PHPExcel_Cell::stringFromColumnIndex($col);
+        $endcol = \PHPExcel_Cell::stringFromColumnIndex($col);
 
         // Set Autofilters and Header row style
         $sheet->setAutoFilter("A1:{$endcol}1");
@@ -257,7 +257,7 @@ class ExcelDataFormatter extends DataFormatter
      * @return PHPExcel_Worksheet
      */
     protected function addRow(
-        PHPExcel_Worksheet &$sheet,
+        \PHPExcel_Worksheet &$sheet,
         DataObjectInterface $item,
         array $fields
     ) {
@@ -287,9 +287,9 @@ class ExcelDataFormatter extends DataFormatter
      * {@link PHPExcel_IOFactory::createWriter}.
      * @return string
      */
-    protected function getFileData(PHPExcel $excel, $format)
+    protected function getFileData(\PHPExcel $excel, $format)
     {
-        $writer = PHPExcel_IOFactory::createWriter($excel, $format);
+        $writer = \PHPExcel_IOFactory::createWriter($excel, $format);
         ob_start();
         $writer->save('php://output');
         $fileData = ob_get_clean();
