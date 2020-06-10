@@ -1,7 +1,7 @@
 {
     "name": "firebrandhq/silverstripe-excel-export",
     "description": "Silverstripe module offering DataFormatters to export DataObjects in Excel format.",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "require": {
         "phpoffice/phpexcel": ">=1.8",
         "silverstripe/cms": "~4.0"
