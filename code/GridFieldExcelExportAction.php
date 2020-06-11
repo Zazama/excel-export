@@ -14,6 +14,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridField_ActionProvider;
 use SilverStripe\Forms\GridField\GridField_ColumnProvider;
 use SilverStripe\Forms\GridField\GridField_FormAction;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationException;
 
 class GridFieldExcelExportAction implements GridField_ColumnProvider, GridField_ActionProvider {

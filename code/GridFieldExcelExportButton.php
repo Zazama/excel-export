@@ -17,6 +17,7 @@ namespace ExcelExport;
 
 
 use SilverStripe\Control\Controller;
+use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridField_ActionProvider;
 use SilverStripe\Forms\GridField\GridField_FormAction;
@@ -25,6 +26,7 @@ use SilverStripe\Forms\GridField\GridField_URLHandler;
 use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\SS_List;
 
 class GridFieldExcelExportButton implements
     GridField_HTMLProvider,
@@ -151,7 +153,7 @@ class GridFieldExcelExportButton implements
     /**
      * Action to export the GridField list to an Excel 2007 file.
      * @param  GridField $gridField
-     * @param  SS_HTTPRequest    $request
+     * @param  HTTPRequest    $request
      * @return string
      */
     public function handleXlsx(GridField $gridField, $request = null)
@@ -162,7 +164,7 @@ class GridFieldExcelExportButton implements
     /**
      * Action to export the GridField list to an Excel 5 file.
      * @param  GridField $gridField
-     * @param  SS_HTTPRequest    $request
+     * @param  HTTPRequest    $request
      * @return string
      */
     public function handleXls(GridField $gridField, $request = null)
@@ -173,7 +175,7 @@ class GridFieldExcelExportButton implements
     /**
      * Action to export the GridField list to an CSV file.
      * @param  GridField $gridField
-     * @param  SS_HTTPRequest    $request
+     * @param  HTTPRequest    $request
      * @return string
      */
     public function handleCsv(GridField $gridField, $request = null)
@@ -186,7 +188,7 @@ class GridFieldExcelExportButton implements
      * @param  string    $dataFormatterClass
      * @param  string    $ext
      * @param  GridField $gridField
-     * @param  SS_HTTPRequest    $request
+     * @param  HTTPRequest    $request
      * @return string
      */
     protected function genericHandle($dataFormatterClass, $ext, GridField $gridField, $request = null)
@@ -225,7 +227,7 @@ class GridFieldExcelExportButton implements
     /**
      * Helper function to extract the item list out of the GridField.
      * @param  GridField $gridField
-     * @return SS_list
+     * @return SS_List
      */
     protected function getItems(GridField $gridField)
     {
