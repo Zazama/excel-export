@@ -3,8 +3,7 @@
     "description": "Silverstripe module offering DataFormatters to export DataObjects in Excel format.",
     "type": "silverstripe-vendormodule",
     "require": {
-        "phpoffice/phpexcel": ">=1.8",
-        "silverstripe/cms": "~4.0"
+        "phpoffice/phpspreadsheet": "dev-master"
     },
     "license": "MIT",
     "authors": [
@@ -17,5 +16,7 @@
 		"silverstripe/restfulserver": "If you install the restfull server, you'll be able to dynamically generate SpreadSheet on the fly."
 	},
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": true,
+    "require-dev": {
+    }
 }
