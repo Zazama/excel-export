@@ -10,6 +10,7 @@
 namespace ExcelExport;
 
 use SilverStripe\Core\ClassInfo;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DataObjectInterface;
 use SilverStripe\ORM\SS_List;
 
@@ -98,7 +99,7 @@ abstract class DataFormatter
      */
     public static function for_extension($extension)
     {
-        $classes = ClassInfo::subclassesFor("DataFormatter");
+        $classes = ClassInfo::subclassesFor(DataFormatter::class);
         array_shift($classes);
         $sortedClasses = array();
         foreach ($classes as $class) {
@@ -136,7 +137,7 @@ abstract class DataFormatter
      */
     public static function for_mimetype($mimeType)
     {
-        $classes = ClassInfo::subclassesFor("DataFormatter");
+        $classes = ClassInfo::subclassesFor(DataFormatter::class);
         array_shift($classes);
         $sortedClasses = array();
         foreach ($classes as $class) {
