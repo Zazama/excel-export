@@ -27,6 +27,7 @@ use SilverStripe\ORM\SS_List;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 use SilverStripe\View\SSViewer;
+use SilverStripe\Core\Config\Config;
 
 class ExcelDataFormatter extends DataFormatter
 {
@@ -322,7 +323,7 @@ class ExcelDataFormatter extends DataFormatter
             return $this->useLabelsAsHeaders;
         }
 
-        $useLabelsAsHeaders = static::config()->UseLabelsAsHeaders;
+        $useLabelsAsHeaders = Config::inst()->get(__CLASS__, 'UseLabelsAsHeaders');
         if ($useLabelsAsHeaders !== null) {
             return $useLabelsAsHeaders;
         }
