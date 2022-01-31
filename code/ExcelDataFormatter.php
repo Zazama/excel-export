@@ -165,7 +165,7 @@ class ExcelDataFormatter extends DataFormatter
 
             // Auto sizing all the columns
             $col = sizeof($fields);
-            for ($i = 0; $i < $col; $i++) {
+            for ($i = 1; $i <= $col; $i++) {
                 $sheet
                     ->getColumnDimension(
                         Coordinate::stringFromColumnIndex($i)
@@ -231,7 +231,7 @@ class ExcelDataFormatter extends DataFormatter
     {
         // Counter
         $row = 1;
-        $col = 0;
+        $col = 1;
 
         $useLabelsAsHeaders = $this->getUseLabelsAsHeaders();
 
@@ -268,7 +268,7 @@ class ExcelDataFormatter extends DataFormatter
         array $fields
     ) {
         $row = $sheet->getHighestRow() + 1;
-        $col = 0;
+        $col = 1;
 
         foreach ($fields as $field => $type) {
             if ($item->hasField($field) || $item->hasMethod("get{$field}")) {
